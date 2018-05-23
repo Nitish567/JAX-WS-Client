@@ -1,0 +1,14 @@
+com\nitish\client\Customer.class
+com\nitish\client\AddCustomerResponse.class
+com\nitish\client\LoadCustomer.class
+com\nitish\client\AddCustomer.class
+com\nitish\client\DeleteCustomerResponse.class
+com\nitish\client\DeleteCustomer.class
+com\nitish\client\Address.class
+com\nitish\client\CustomerServiceImplService.class
+com\nitish\client\LoadCustomerResponse.class
+com\nitish\client\CustomerInterface.class
+com\nitish\client\UpdateCustomerResponse.class
+com\nitish\client\UpdateCustomer.class
+com\nitish\client\package-info.class
+com\nitish\client\ObjectFactory.class

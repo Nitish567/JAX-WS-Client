@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.nitish.IMCS-JAX-WS</groupId>
+	<artifactId>CustomerClient</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>CustomerClient Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<!-- <version>2.3.0</version> -->
+			<version>2.2.8</version>
+			<!-- <scope>provided</scope> -->
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.stream.buffer</groupId>
+			<artifactId>streambuffer</artifactId>
+			<version>1.5.3</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>CustomerClient</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>2.4.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+					</execution>
+				</executions>
+				<!-- If the configuration is WSDL file -->
+				<!-- <configuration> <wsdlDirectory>src/main/resources/xsd</wsdlDirectory> 
+					<wsdlFiles> <wsdlFile>StockService.wsdl</wsdlFile> </wsdlFiles> <keep>true</keep> 
+					<packageName>trng.imcs.soap.stock</packageName> <sourceDestDir>src/main/java</sourceDestDir> 
+					<vmArgs> <vmArg>-Djavax.xml.accessExternalDTD=all</vmArg> <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg> 
+					</vmArgs> </configuration> -->
+
+				<!-- If the configuration is WSDL url -->
+				<configuration>
+					<bindingFiles>
+						<bindingDirectory>${project.basedir}/src/main/java</bindingDirectory>
+					</bindingFiles>
+					<wsdlUrls>
+						<wsdlUrl>http://localhost:9999/ws/customer?wsdl</wsdlUrl>
+					</wsdlUrls>
+					<packageName>com.nitish.client</packageName>
+					<vmArgs>
+						<vmArg>-Djavax.xml.accessExternalDTD=all</vmArg>
+						<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+					</vmArgs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
